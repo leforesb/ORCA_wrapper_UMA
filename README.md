@@ -4,7 +4,7 @@ In this repository are wrapper scripts to interface Fairchem's Universal Model f
 
 Implicit solvation is implemented as an additive corrective term for both energy and gradients, calculated using the Grimme group's ALPB solvation scheme through [xtb](https://github.com/grimme-lab/xtb).
 
-The two scripts work together as server and client. The server part needs to be started before the subsequent ORCA calculation. The server takes care of the heavy import steps of torch and fairchem once, before the start of the ORCA calculation, with all subsequent UMA calculations being handled through requests by the client side. The server will spawn a number of workers corresponding to the number of cores requested in the ORCA input file through the explicit %pal bloc, for instance:
+The two scripts work together as server and client. The server part needs to be started before the subsequent ORCA calculation. The server takes care of the heavy import steps of torch and fairchem once, before the start of the ORCA calculation, with all subsequent UMA calculations being handled through requests by the client side. The server will spawn a number of workers corresponding to the number of cores requested in the ORCA input file through the explicit %pal block, for instance:
 ```
 %pal
   nprocs 8
